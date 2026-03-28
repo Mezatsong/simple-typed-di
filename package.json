@@ -1,38 +1,62 @@
 {
-	"name": "simple-typed-di",
-	"version": "1.0.0",
-	"description": "A lightweight, hierarchical dependency injection container for TypeScript with lifecycle management.",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "tsup src/index.ts --format cjs,esm --dts --clean",
-		"test": "vitest run",
-		"lint": "eslint src/**/*.ts",
-		"prepublishOnly": "npm run build"
-	},
-	"keywords": [
-		"simple",
-		"di",
-		"dependency-injection",
-		"ioc",
-		"typescript",
-		"lightweight",
-		"hierarchical",
-		"disposable"
-	],
-	"author": "Carrel Mezatsong Tsafack",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Mezatsong/simple-typed-di.git"
-	},
-	"devDependencies": {
-		"typescript": "^5.0.0",
-		"tsup": "^8.0.0",
-		"vitest": "^1.0.0"
-	}
+    "name": "simple-typed-di",
+    "version": "1.0.0",
+    "description": "A lightweight, hierarchical dependency injection container for TypeScript with lifecycle management.",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "keywords": [
+        "simple",
+        "di",
+        "dependency-injection",
+        "ioc",
+        "typescript",
+        "lightweight",
+        "hierarchical",
+        "disposable"
+    ],
+    "author": "Carrel Mezatsong Tsafack",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mezatsong/simple-typed-di.git"
+    },
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "format:check": "prettier --check \"src/**/*.ts\"",
+        "preversion": "npm run lint && npm run test",
+        "prepublishOnly": "npm run build",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "src/**/*.ts": [
+            "prettier --write",
+            "eslint --fix"
+        ],
+        "*.{json,md,yml}": [
+            "prettier --write"
+        ]
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@vitest/coverage-v8": "^4.1.2",
+        "eslint": "^10.1.0",
+        "eslint-config-prettier": "^10.1.8",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
+        "prettier": "^3.8.1",
+        "tsup": "^8.0.0",
+        "typescript": "^5.0.0",
+        "typescript-eslint": "^8.57.2",
+        "vitest": "^4.1.2"
+    }
 }

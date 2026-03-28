@@ -1,0 +1,22 @@
+version: 2
+updates:
+    # Maintain dependencies for npm
+    - package-ecosystem: 'npm'
+      directory: '/'
+      schedule:
+          interval: 'weekly'
+      open-pull-requests-limit: 5
+      # Group minor/patch updates to avoid PR noise
+      groups:
+          dependencies:
+              patterns:
+                  - '*'
+              update-types:
+                  - 'minor'
+                  - 'patch'
+
+    # Maintain GitHub Actions
+    - package-ecosystem: 'github-actions'
+      directory: '/'
+      schedule:
+          interval: 'monthly'

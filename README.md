@@ -1,4 +1,7 @@
-![CI Status](https://github.com/YOUR_USERNAME/simple-typed-di/actions/workflows/ci.yml/badge.svg)
+[![CI Status](https://github.com/Mezatsong/simple-typed-di/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Mezatsong/simple-typed-di/actions)
+[![npm version](https://img.shields.io/npm/v/simple-typed-di.svg)](https://www.npmjs.com/package/simple-typed-di)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 
 # simple-typed-di
 
@@ -23,12 +26,12 @@ npm install simple-typed-di
 ### Basic Usage
 
 ```typescript
-import { SimpleTypedDI } from "simple-typed-di";
+import { SimpleTypedDI } from 'simple-typed-di';
 
 class Database {
-  connect() {
-    console.log("Connected!");
-  }
+    connect() {
+        console.log('Connected!');
+    }
 }
 
 const container = new SimpleTypedDI();
@@ -61,9 +64,9 @@ Implement the `Disposable` interface or provide a custom cleanup callback.
 
 ```typescript
 class MyService implements Disposable {
-  async dispose() {
-    await closeConnections();
-  }
+    async dispose() {
+        await closeConnections();
+    }
 }
 
 container.addLazySingleton(MyService, () => new MyService());
@@ -71,3 +74,52 @@ container.addLazySingleton(MyService, () => new MyService());
 // Later...
 await container.dispose(); // MyService.dispose() is called automatically
 ```
+
+## 🤝 Contributing
+
+Contributions are welcome! Whether it's a bug fix, a new feature, or improved documentation, feel free to open a Pull Request.
+
+### Development Setup
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/Mezatsong/simple-typed-di.git
+    cd simple-typed-di
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+### Quality Control
+
+Before submitting a PR, please ensure your changes pass all checks:
+
+- **Run Tests:**
+
+    ```bash
+    npm test
+    ```
+
+    _To keep tests running while you code, use:_ `npx vitest`
+
+- **Check Linting:**
+
+    ```bash
+    npm run lint
+    ```
+
+- **Verify Build:**
+    ```bash
+    npm run build
+    ```
+
+### Workflow
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/amazing-feature`).
+3. Commit your changes (`git commit -m 'Add some amazing feature'`).
+4. Push to the branch (`git push origin feature/amazing-feature`).
+5. Open a Pull Request.
