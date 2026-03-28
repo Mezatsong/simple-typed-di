@@ -1,4 +1,15 @@
-node_modules
-dist
+# Testing
+coverage/
+
+# Build artifacts
+dist/
+
+# Dependencies
+node_modules/
+
+# IDE / OS files
 .DS_Store
+.vscode/
+.idea/
 *.log
+
