@@ -1,6 +1,6 @@
 {
     "name": "simple-typed-di",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A lightweight, hierarchical dependency injection container for TypeScript with lifecycle management.",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
